@@ -1,0 +1,348 @@
+/* Основные стили */
+body {
+  font-family: 'Roboto', sans-serif;
+  color: #333;
+  background: linear-gradient(135deg, #ff9baa 0%, #ffe5ec 100%);
+  margin: 0;
+  padding: 0;
+  min-height: 100vh; /* Обеспечивает высоту на весь экран */
+  display: flex;
+  flex-direction: column;
+  justify-content: center; /* Центрирование по вертикали */
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  flex-grow: 1; /* Позволяет main занимать оставшуюся высоту */
+}
+
+.content {
+  display: flex;
+  background-color: #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  overflow: hidden;
+  flex-direction: row; /* Горизонтальная ориентация по умолчанию */
+  max-width: 800px; /* Максимальная ширина */
+  width: 100%; /* Ширина 100% до max-width */
+  margin: 0 auto; /* Центрирование по горизонтали */
+}
+
+.photo {
+  flex: 1;
+}
+
+.photo img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.greeting {
+  flex: 1;
+  padding: 20px;
+  background-color: #ffe5ec;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.greeting h2 {
+  font-family: 'Playfair Display', serif;
+  color: #ff6f61;
+  font-size: 2em;
+  margin: 0;
+}
+
+.greeting p {
+  font-size: 1.2em;
+  color: #333;
+  text-align: center;
+}
+
+button {
+position: relative;
+padding: 12px 35px;
+background: #ffb6c1;
+font-size: 17px;
+font-weight: 500;
+color: #181818;
+border: 3px solid #ffb6c1;
+border-radius: 8px;
+box-shadow: 0 0 0 #ffb6c1;
+transition: all 0.3s ease-in-out;
+cursor: pointer;
+}
+
+button.animate, button.animate-start {
+background: transparent;
+color: #fec195;
+box-shadow: 0 0 25px #fec1958c;
+}
+
+button.animate .star-1, button.animate-start .star-1 {
+top: -80%;
+left: -30%;
+width: 25px;
+height: auto;
+filter: drop-shadow(0 0 10px #dcc93d);
+z-index: 2;
+}
+
+button.animate .star-2, button.animate-start .star-2 {
+top: -25%;
+left: 10%;
+width: 15px;
+height: auto;
+filter: drop-shadow(0 0 10px #dcc93d);
+z-index: 2;
+}
+
+button.animate .star-3, button.animate-start .star-3 {
+top: 55%;
+left: 25%;
+width: 5px;
+height: auto;
+filter: drop-shadow(0 0 10px #dcc93d);
+z-index: 2;
+}
+
+button.animate .star-4, button.animate-start .star-4 {
+top: 30%;
+left: 80%;
+width: 8px;
+height: auto;
+filter: drop-shadow(0 0 10px #dcc93d);
+z-index: 2;
+}
+
+button.animate .star-5, button.animate-start .star-5 {
+top: 25%;
+left: 115%;
+width: 15px;
+height: auto;
+filter: drop-shadow(0 0 10px #dcc93d);
+z-index: 2;
+}
+
+button.animate .star-6, button.animate-start .star-6 {
+top: 5%;
+left: 60%;
+width: 5px;
+height: auto;
+filter: drop-shadow(0 0 10px #dcc93d);
+z-index: 2;
+}
+
+.star-1, .star-2, .star-3, .star-4, .star-5, .star-6 {
+position: absolute;
+filter: drop-shadow(0 0 0 #dcc93d);
+z-index: -5;
+transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+}
+
+.star-1 {
+top: 20%;
+left: 20%;
+width: 25px;
+height: auto;
+}
+
+.star-2 {
+top: 45%;
+left: 45%;
+width: 15px;
+height: auto;
+transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-3 {
+top: 40%;
+left: 40%;
+width: 5px;
+height: auto;
+transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-4 {
+top: 20%;
+left: 40%;
+width: 8px;
+height: auto;
+transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-5 {
+top: 25%;
+left: 45%;
+width: 15px;
+height: auto;
+transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+}
+
+.star-6 {
+top: 5%;
+left: 50%;
+width: 5px;
+height: auto;
+transition: all 0.8s ease;
+}
+
+.fil0 {
+fill: #fffdef;
+}
+
+/* Мобильные стили */
+@media (max-width: 768px) {
+  .content {
+      flex-direction: column; /* Вертикальная ориентация на мобильных устройствах */
+      text-align: center;
+      max-width: 90%; /* Уменьшение ширины на мобильных устройствах */
+  }
+
+  .greeting {
+      padding: 10px;
+  }
+
+  .greeting h2 {
+      font-size: 1.5em;
+  }
+
+  .greeting p {
+      font-size: 1em;
+  }
+
+  .greeting button {
+      width: 100%;
+      padding: 15px;
+      font-size: 1.2em;
+  }
+}
+
+/* Стили для экрана загрузки */
+.loading-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, #ff9baa 0%, #ffe5ec 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9999;
+}
+
+.crushbtn {
+  font-size: 2rem;
+  padding: 0.7rem 2.4rem;
+  letter-spacing: .3rem;
+  border-radius: 1.5rem;
+  position: relative;
+  background-color: #e8e8e8;
+  color: red;
+  border: none;
+  text-shadow: 0 0 3px #ff6e6e;
+  overflow: hidden;
+  cursor: pointer;
+  transition: 0.7s;
+  z-index: 2;
+}
+
+.heart1 svg {
+  position: absolute;
+  left: 4.5rem;
+  top: 1.8rem;
+  opacity: 0;
+  fill: red;
+  stroke: none;
+  transition: 0.7s;
+  width: 2rem;
+  height: 2rem;
+  animation: move1 5s ease-in-out infinite alternate-reverse;
+}
+
+.heart2 svg {
+  position: absolute;
+  left: 0.8rem;
+  opacity: 0;
+  top: 0.3rem;
+  width: 1.5rem;
+  height: 1.5rem;
+  fill: red;
+  stroke: none;
+  transform: rotate(-20deg );
+  animation: move2 5s ease infinite alternate-reverse;
+}
+
+.heart3 svg {
+  position: absolute;
+  right: 1rem;
+  top: 0.5rem;
+  opacity: 0;
+  width: 1.4rem;
+  height: 1.4rem;
+  transform: rotate(20deg);
+  fill: red;
+  stroke: none;
+  z-index: -1;
+  animation: move3 5s ease infinite alternate-reverse;
+}
+
+@keyframes move1 {
+  0% {
+    top: 2rem;
+  }
+
+  50% {
+    top: 4rem;
+  }
+
+  100% {
+    top: 2rem;
+  }
+}
+
+@keyframes move2 {
+  0% {
+    top: 0.3rem;
+  }
+
+  50% {
+    top: 1.5rem;
+  }
+
+  100% {
+    top: 0.3rem;
+  }
+}
+
+@keyframes move3 {
+  0% {
+    top: 1.5rem;
+  }
+
+  50% {
+    top: .6rem;
+  }
+
+  100% {
+    top: 1.5rem;
+  }
+}
+
+.crushbtn.animate-start .heart1 svg,
+.crushbtn.animate-start .heart2 svg,
+.crushbtn.animate-start .heart3 svg {
+  opacity: 1;
+  filter: drop-shadow(0 0 10px #ff6e6e);
+}
+
+.crushbtn.animate-start {
+  color: red;
+  box-shadow: 0 0 10px inset #ff6e6e;
+}
