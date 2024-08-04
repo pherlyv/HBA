@@ -1,6 +1,6 @@
 /* Основные стили */
 body {
-  font-family: 'Roboto', sans-serif;
+  font-family: 'Oswald', sans-serif;
   color: #333;
   background: linear-gradient(135deg, #ff9baa 0%, #ffe5ec 100%);
   margin: 0;
@@ -31,14 +31,46 @@ main {
   margin: 0 auto; /* Центрирование по горизонтали */
 }
 
-.photo {
-  flex: 1;
+.carousel {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  border-radius: 10px 0 0 10px;
 }
 
-.photo img {
+.carousel-inner {
+  display: flex;
+  transition: transform 0.5s ease;
+}
+
+.carousel-item {
+  min-width: 100%;
+  box-sizing: border-box;
+}
+
+.carousel-item img {
   width: 100%;
-  height: auto;
-  display: block;
+  height: 400px; /* Устанавливаем фиксированную высоту для квадрата */
+  object-fit: cover; /* Обрезаем изображение, сохраняя его центр */
+}
+
+.carousel-control {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #fff;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+}
+
+.prev {
+  left: 10px;
+}
+
+.next {
+  right: 10px;
 }
 
 .greeting {
@@ -52,7 +84,7 @@ main {
 }
 
 .greeting h2 {
-  font-family: 'Playfair Display', serif;
+  font-family: 'Oswald', sans-serif;
   color: #ff6f61;
   font-size: 2em;
   margin: 0;
@@ -65,135 +97,135 @@ main {
 }
 
 button {
-position: relative;
-padding: 12px 35px;
-background: #ffb6c1;
-font-size: 17px;
-font-weight: 500;
-color: #181818;
-border: 3px solid #ffb6c1;
-border-radius: 8px;
-box-shadow: 0 0 0 #ffb6c1;
-transition: all 0.3s ease-in-out;
-cursor: pointer;
+  position: relative;
+  padding: 12px 35px;
+  background: #ff6f61;
+  font-size: 17px;
+  font-weight: 500;
+  color: #181818;
+  border: 3px solid #ff6f61;
+  border-radius: 8px;
+  box-shadow: 0 0 0 #ffb6c1;
+  transition: all 0.3s ease-in-out;
+  cursor: pointer;
 }
 
 button.animate, button.animate-start {
-background: transparent;
-color: #fec195;
-box-shadow: 0 0 25px #fec1958c;
+  background: #ffb6c1;
+  border: 3px solid #ffb6c1;
+  box-shadow: 0 0 25px #a6616c;
 }
 
 button.animate .star-1, button.animate-start .star-1 {
-top: -80%;
-left: -30%;
-width: 25px;
-height: auto;
-filter: drop-shadow(0 0 10px #dcc93d);
-z-index: 2;
+  top: -80%;
+  left: -30%;
+  width: 25px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #dcc93d);
+  z-index: 2;
 }
 
 button.animate .star-2, button.animate-start .star-2 {
-top: -25%;
-left: 10%;
-width: 15px;
-height: auto;
-filter: drop-shadow(0 0 10px #dcc93d);
-z-index: 2;
+  top: -25%;
+  left: 10%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #dcc93d);
+  z-index: 2;
 }
 
 button.animate .star-3, button.animate-start .star-3 {
-top: 55%;
-left: 25%;
-width: 5px;
-height: auto;
-filter: drop-shadow(0 0 10px #dcc93d);
-z-index: 2;
+  top: 55%;
+  left: 25%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #dcc93d);
+  z-index: 2;
 }
 
 button.animate .star-4, button.animate-start .star-4 {
-top: 30%;
-left: 80%;
-width: 8px;
-height: auto;
-filter: drop-shadow(0 0 10px #dcc93d);
-z-index: 2;
+  top: 30%;
+  left: 80%;
+  width: 8px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #dcc93d);
+  z-index: 2;
 }
 
 button.animate .star-5, button.animate-start .star-5 {
-top: 25%;
-left: 115%;
-width: 15px;
-height: auto;
-filter: drop-shadow(0 0 10px #dcc93d);
-z-index: 2;
+  top: 25%;
+  left: 115%;
+  width: 15px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #dcc93d);
+  z-index: 2;
 }
 
 button.animate .star-6, button.animate-start .star-6 {
-top: 5%;
-left: 60%;
-width: 5px;
-height: auto;
-filter: drop-shadow(0 0 10px #dcc93d);
-z-index: 2;
+  top: 5%;
+  left: 60%;
+  width: 5px;
+  height: auto;
+  filter: drop-shadow(0 0 10px #dcc93d);
+  z-index: 2;
 }
 
 .star-1, .star-2, .star-3, .star-4, .star-5, .star-6 {
-position: absolute;
-filter: drop-shadow(0 0 0 #dcc93d);
-z-index: -5;
-transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
+  position: absolute;
+  filter: drop-shadow(0 0 0 #dcc93d);
+  z-index: -5;
+  transition: all 1s cubic-bezier(0.05, 0.83, 0.43, 0.96);
 }
 
 .star-1 {
-top: 20%;
-left: 20%;
-width: 25px;
-height: auto;
+  top: 20%;
+  left: 20%;
+  width: 25px;
+  height: auto;
 }
 
 .star-2 {
-top: 45%;
-left: 45%;
-width: 15px;
-height: auto;
-transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  top: 45%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
 .star-3 {
-top: 40%;
-left: 40%;
-width: 5px;
-height: auto;
-transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
+  top: 40%;
+  left: 40%;
+  width: 5px;
+  height: auto;
+  transition: all 1s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
 .star-4 {
-top: 20%;
-left: 40%;
-width: 8px;
-height: auto;
-transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
+  top: 20%;
+  left: 40%;
+  width: 8px;
+  height: auto;
+  transition: all 0.8s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
 .star-5 {
-top: 25%;
-left: 45%;
-width: 15px;
-height: auto;
-transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
+  top: 25%;
+  left: 45%;
+  width: 15px;
+  height: auto;
+  transition: all 0.6s cubic-bezier(0, 0.4, 0, 1.01);
 }
 
 .star-6 {
-top: 5%;
-left: 50%;
-width: 5px;
-height: auto;
-transition: all 0.8s ease;
+  top: 5%;
+  left: 50%;
+  width: 5px;
+  height: auto;
+  transition: all 0.8s ease;
 }
 
 .fil0 {
-fill: #fffdef;
+  fill: #fffdef;
 }
 
 /* Мобильные стили */
@@ -220,6 +252,10 @@ fill: #fffdef;
       width: 100%;
       padding: 15px;
       font-size: 1.2em;
+  }
+
+  .carousel {
+      border-radius: 10px 10px 0 0;
   }
 }
 
@@ -295,43 +331,43 @@ fill: #fffdef;
 
 @keyframes move1 {
   0% {
-    top: 2rem;
+      top: 2rem;
   }
 
   50% {
-    top: 4rem;
+      top: 4rem;
   }
 
   100% {
-    top: 2rem;
+      top: 2rem;
   }
 }
 
 @keyframes move2 {
   0% {
-    top: 0.3rem;
+      top: 0.3rem;
   }
 
   50% {
-    top: 1.5rem;
+      top: 1.5rem;
   }
 
   100% {
-    top: 0.3rem;
+      top: 0.3rem;
   }
 }
 
 @keyframes move3 {
   0% {
-    top: 1.5rem;
+      top: 1.5rem;
   }
 
   50% {
-    top: .6rem;
+      top: .6rem;
   }
 
   100% {
-    top: 1.5rem;
+      top: 1.5rem;
   }
 }
 
